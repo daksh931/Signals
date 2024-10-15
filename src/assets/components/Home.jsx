@@ -67,6 +67,16 @@ const Home = () => {
             topic: "Travel",
             hashtag: "#TrainAccident",
             postCount: 17500,
+        },
+        {
+            topic: "General",
+            hashtag: "Castration",
+            postCount: 4475,
+        },
+        {
+            topic: "Travel",
+            hashtag: "#TrainAccident",
+            postCount: 17500,
         }
     ];
 
@@ -74,8 +84,6 @@ const Home = () => {
         <div className="flex flex-row">
 
             <div className=" hidden xs:block sm:w-[10%] md:w-[23%] fixed">
-
-
                 {/* very first Fixed sidebar: Left isde bar for icons and other studd*/}
                 <div id='icons' className=' sm:p-4  md:pl-12'>
 
@@ -87,8 +95,8 @@ const Home = () => {
                         {/*  through map one by one listing the items of left nav */}
                         {icons.map((Item, idx) => (
                             <div className='flex items-center hover:bg-slate-200 px-2 py-1 rounded-full cursor-pointer'
-                                key={idx}> <span className='overflow-hidden'>  < Item.icon />  </span><spam className='hidden lg:block text-nowrap text-[19px] text-gray-700 md:ml-4 lg:pr-3'>
-                                    {Item.text} </spam>  </div>
+                                key={idx}> <span className='overflow-hidden'>  < Item.icon />  </span><span className='hidden lg:block text-nowrap text-[19px] text-gray-700 md:ml-4 lg:pr-3'>
+                                    {Item.text} </span>  </div>
                         ))
                         }
                     </div>
@@ -129,21 +137,18 @@ const Home = () => {
             </div>
 
             {/* 2nd or middle div Scrollable content */}
-            <div className="  md:mt-0 xs:ml-[10%] w-full  md:ml-[23%] lg:mr-[30%] border-x-[1px] border-gray-200">
+            <div className="  md:mt-0 xs:ml-[10%] w-full lg:w-[47%] lg:mr-0 sm:mr-[16vw]  md:ml-[23%] border-x-[1px] border-gray-200">
                 <div className=" h-[400vh]">
                     <HomeCenterDiv />
                 </div>
             </div>
 
 
-
-
-
-            {/* Fixed sidebar: RIGHT SIDE BAR offer x discount */}
-            <div className="hidden lg:block right-0  w-full md:w-[30%] fixed pr-6">
+            {/* Fixed sidebar: RIGHT SIDE SEARCH BAR offer x discount and trending or hot topics 3rd div */}
+            <div className="hidden lg:block right-0  w-full md:w-[30%] pr-6  ">
                 <div className=' px-4 p-1'>
 
-                    {/* right-1 search bar */}
+                    {/* inside right-1 search bar */}
                     <div
                         ref={searchDivRef}
                         id='search main div' className='flex py-2 justify-center items-center  text-slate-800 rounded-full bg-slate-100 border-2 border-gray-200 '
@@ -154,19 +159,19 @@ const Home = () => {
                         <input type="text" onBlur={handleBlur} placeholder="Search" className='bg-slate-100 w-full mr-4 focus:outline-none' />
                     </div>
 
-                    {/* right side-2 div discount div*/}
+                    {/* inside right side-2 div discount div*/}
                     <div className=' flex flex-col justify-start space-y-2 px-3 py-2 pb-4 bg-slate-800 my-3 rounded-2xl text-white'>
                         <span className='text-2xl font-bold'> Expiring soon! </span>
                         <span> Get up to 40% off X Premium</span>
                         <button className='flex self-start px-3 py-1 bg-white text-black rounded-full font-bold'> Learn more </button>
                     </div>
 
-                    {/* right-3 div What’s happening div  */}
+                    {/* inside right-3 div What’s happening div  */}
                     <div className=' flex flex-col justify-start   my-4 rounded-2xl border-[1px] border-slate-100 '>
                         <span className='p-2 text-black font-bold text-xl'> What's happening</span>
                         {
                             trendingTopics.map((item, idx) => (
-                                <div className='flex justify-between hover:bg-zinc-50 text-sm p-2 cursor-pointer '>
+                                <div key={idx} className='flex justify-between hover:bg-zinc-50 text-sm p-2 cursor-pointer '>
                                     <div >
                                     <div className='text-zinc-500'> {item.topic} </div>
                                     <div className='font-semibold text-base'> {item.hashtag} </div>

@@ -1,6 +1,6 @@
 import React from 'react'
-import Post from './Post'
 import Createpost from './Createpost';
+import Allposts from './Allposts';
 
 const Homescroll = () => {
   return (
@@ -19,7 +19,7 @@ const Homescroll = () => {
 
       {/* public user's posts will appear here  */}
       <div>
-        <Post />
+        <Allposts />
       </div>
     </div>
   )
